@@ -1,0 +1,74 @@
+{
+  // update funtion symbol for statusline
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.colorSupport": true,
+  "suggest.enablePreview": true,
+  "suggest.echodocSupport": true,
+  // "diagnostic.displayByAle": true,
+  // go languageserver
+  "languageserver": {
+    "golang": {
+      "command": "~/code/go/bin/gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+         "cache": {
+           "directory": "/tmp/ccls"
+         }
+       }
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  },
+  // coc-snippets config
+  "snippets.extends": {
+    "cpp": ["c"],
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
+  "snippets.ultisnips.directories": [
+    "UltiSnips"
+  ],
+  // coc-viml config
+  "vimlsp.debug": false,
+  "vimlsp.trace.server": "off",
+  // coc-list
+  "list.normalMappings": {
+    "<C-n>": "normal:j",
+    "<C-p>": "normal:k",
+    "t": "action:tabe",
+    "v": "action:vsplit",
+    "s": "action:split",
+    "d": "expr:GetDeleteAction"
+  },
+  "list.insertMappings": {
+    "<CR>": "do:defaultaction",
+    "<C-r>": "do:refresh",
+    "<C-g>": "do:switch",
+    "<C-n>": "normal:j",
+    "<C-p>": "normal:k",
+    "<C-t>": "action:tabe",
+    "<C-v>": "action:vsplit",
+    "<C-s>": "action:split",
+    "<C-w>": "command:wincmd k"
+  },
+  // coc-git
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "git.addGBlameToVirtualText": false,
+  "git.addGBlameToBufferVar": true,
+  // coc-yank
+  "yank.highlight.duration": 350
+}
