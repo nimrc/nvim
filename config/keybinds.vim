@@ -30,35 +30,6 @@ cnoremap <C-k> <Up>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-" Ctrl-n Toggle relative number
-function! ToggleRelativeNumber()
-  if(&relativenumber == 1)
-    set norelativenumber number
-  else
-    set relativenumber
-  endif
-endfunc
-
-nnoremap <C-n> :call ToggleRelativeNumber()<cr>
-set norelativenumber number
-
-" F2 - F7 ==================================================================={{{
-" F2 Toggle line numbers
-function! HideNumber()
-  if(&relativenumber)
-    set relativenumber!
-    if (&number)
-      set number!
-    endif
-  else
-    set number!
-  endif
-  set number?
-endfunc
-
-noremap <F2> :call HideNumber()<CR>
-noremap! <F2> <C-[>:call HideNumber()<CR>a
-
 " F3 Toggle ALE
 noremap <F3> :ALEToggle<CR>
 noremap! <F3> <C-[>:ALEToggle<CR>a
