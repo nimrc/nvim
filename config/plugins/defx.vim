@@ -68,4 +68,7 @@ hi def link Defx_git_Ignored Comment
 Plug 'kristijanhusak/defx-icons'
 " disbale syntax highlighting to prevent performence issue
 let g:defx_icons_enable_syntax_highlight = 1
+
+" autocmd VimEnter * nested :Defx
+
 " }}}
