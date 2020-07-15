@@ -171,4 +171,12 @@ let g:markdown_fenced_languages = [
       \ 'help'
       \]
 
+" color for cursor holding highlight
+hi default CocHighlightText guibg=#8a8a8a guifg=#211F1C
+hi default CocHighlightText ctermbg=#8a8a8a ctermfg=#211F1C
+
+" color for coc-diagnostic
+hi link CocErrorSign Error
+hi link CocWarningSign ALEWarningSign
+
 " }}}

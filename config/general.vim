@@ -9,8 +9,13 @@ call plug#end()
 
 " vim: set fdl=0 fdm=marker:
 
+
 " Options setup ============================================================={{{
-colorscheme onedark
+" colorscheme onedark
+"
+"colorscheme spacegray
+colorscheme atom-dark
+"
 set mouse=a
 set nocompatible
 set hidden
@@ -71,19 +76,7 @@ call defx#custom#option('_', {
 
 " }}}
 
-" coc.nvim setup ============================================================{{{
-
-" color for cursor holding highlight
-hi default CocHighlightText guibg=#8a8a8a guifg=#211F1C
-hi default CocHighlightText ctermbg=#8a8a8a ctermfg=#211F1C
-
-" color for coc-diagnostic
-hi link CocErrorSign Error
-hi link CocWarningSign ALEWarningSign
-
-" }}}
-
-" lightline setup ==========================================================={{{
+"" lightline setup ==========================================================={{{
 
 " wombat tabline colorscheme customization
 let s:palette = g:lightline#colorscheme#wombat#palette
@@ -91,9 +84,26 @@ let s:palette.tabline.tabsel = [ [ '#242424', '#8ac6f2', 235, 117, 'bold' ] ]
 unlet s:palette
 
 " }}}
+
 "
 " vim: set fdl=0 fdm=marker:
 if $TERM_PROGRAM =~ "iTerm"
   " reset cursor when vim exits
   au VimLeave * set guicursor=a:ver25-blinkon0
 endif
+
+nnoremap <C-t> :terminal<CR>
+
+function! TerminalQuit()
+    let bid = get(t:, '__terminal_bid__', -1)
+    if bid < 0
+        return
+    endif
+    let name = bufname(bid)
+    if name == ''
+        return
+    endif
+    exec "bw! ". name
+endfunc
+
+au TermClose * call TerminalQuit()

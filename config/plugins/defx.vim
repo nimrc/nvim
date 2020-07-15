@@ -40,6 +40,9 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> R defx#do_action('redraw')
 endfunction
 
+" 只有defx窗口时自动关闭
+autocmd BufEnter * if (!has('vim_starting') && winnr('$') == 1 && &filetype ==# 'defx') | quit | endif
+
 " Defx git
 Plug 'kristijanhusak/defx-git'
 let g:defx_git#indicators = {
