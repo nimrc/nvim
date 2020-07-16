@@ -53,14 +53,14 @@ noremap <F7> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 """
 
 " Tab Operations ============================================================{{{
-map <leader>th :tabfirst<cr>
+map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 
 map <leader>tn :tabnext<cr>
 map <leader>tp :tabprev<cr>
 
 map <leader>te :tabedit<cr>
-map <leader>td :tabclose<cr>
+map <leader>tc :tabclose<cr>
 map <leader>tm :tabm<cr>
 
 " Toggles between the active and last active tab "
@@ -86,3 +86,6 @@ noremap <leader>0 :tablast<cr>
 " }}}
 
 " vim: set fdl=0 fdm=marker:
+
+" js
+autocmd FileType javascript noremap <buffer> <silent> <leader>r :!node %<cr>
